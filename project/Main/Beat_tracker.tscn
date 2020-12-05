@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Main/Beat_tracker.gd" type="Script" id=1]
+[ext_resource path="res://Music/Playerhit.wav" type="AudioStream" id=2]
+[ext_resource path="res://Music/Enemyhit.wav" type="AudioStream" id=3]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -8,4 +10,10 @@ script = ExtResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.9
 one_shot = true
+
+[node name="Playerhit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Enemyhit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

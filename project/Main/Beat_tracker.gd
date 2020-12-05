@@ -5,6 +5,8 @@ extends Node
 export var _strike_period_time := 0.8
 #onready variables
 onready var _timer := $Timer
+onready var _playerhit := $Playerhit
+onready var _enemyhit := $Enemyhit
 #variables
 var _ignore
 var _beats := {
@@ -32,8 +34,10 @@ func _on_Timer_timeout():
 	#check who gets attack bonuses
 	if this_beat == 1:
 		player_hit = true
+		_playerhit.play()
 	else:
 		player_hit = false
+		_enemyhit.play()
 	enemy_hit = !player_hit
 	#wait, then start timer
 	var wait_time := (1-_strike_period_time)
