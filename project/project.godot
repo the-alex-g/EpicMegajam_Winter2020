@@ -19,10 +19,18 @@ config/name="EpicMegajam_Winter2020"
 run/main_scene="res://Main/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Beat_tracker="*res://Main/Beat_tracker.tscn"
+
 [display]
 
 window/size/width=608
 window/size/height=608
+
+[editor]
+
+script_templates_search_path="../scripts"
 
 [rendering]
 
