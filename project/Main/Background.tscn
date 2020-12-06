@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 4498.0
+margin_bottom = 3241.0
+color = Color( 0.145098, 0.886275, 0.85098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
