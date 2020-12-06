@@ -10,5 +10,5 @@ var _ignore
 func _ready()%VOID_RETURN%:
     pass
 
-func _process(delta:float)%VOID_RETURN%:
+func _process(_delta:float)%VOID_RETURN%:
     pass

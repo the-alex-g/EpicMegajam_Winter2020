@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Battle_Enemy",
+"language": "GDScript",
+"path": "res://Enemies/Battle/Battle_Enemy.gd"
+}, {
+"base": "Node2D",
+"class": "Battle_Player",
+"language": "GDScript",
+"path": "res://Player/Battle_Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Map_Enemy",
+"language": "GDScript",
+"path": "res://Enemies/Map/Map_Enemy.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Map_Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
+} ]
 _global_script_class_icons={
-
+"Battle_Enemy": "",
+"Battle_Player": "",
+"Map_Enemy": "",
+"Map_Player": ""
 }
 
 [application]
