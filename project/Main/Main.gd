@@ -11,4 +11,4 @@ func _ready():
 	pass
 
 func _process(delta:float):
-	$icon.visible = Beat_tracker.player_hit
+	pass
