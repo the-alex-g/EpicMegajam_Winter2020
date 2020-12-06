@@ -142,34 +142,34 @@ script = ExtResource( 5 )
 [node name="PlayerPaths" type="Node2D" parent="Battle"]
 position = Vector2( -16, -16 )
 
-[node name="Path2D" type="Path2D" parent="Battle/PlayerPaths"]
+[node name="Path2D0" type="Path2D" parent="Battle/PlayerPaths"]
 curve = SubResource( 10 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/PlayerPaths/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Battle/PlayerPaths/Path2D0"]
 position = Vector2( 4432, 3216 )
 rotation = -2.45458
 
-[node name="Path2D2" type="Path2D" parent="Battle/PlayerPaths"]
+[node name="Path2D1" type="Path2D" parent="Battle/PlayerPaths"]
 curve = SubResource( 11 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/PlayerPaths/Path2D2"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Battle/PlayerPaths/Path2D1"]
 position = Vector2( 4432, 3216 )
 rotation = -1.5708
 
 [node name="EnemyPaths" type="Node2D" parent="Battle"]
 position = Vector2( -16, -16 )
 
-[node name="Path2D" type="Path2D" parent="Battle/EnemyPaths"]
+[node name="Path2D0" type="Path2D" parent="Battle/EnemyPaths"]
 curve = SubResource( 12 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/EnemyPaths/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Battle/EnemyPaths/Path2D0"]
 position = Vector2( 4432, 3152 )
 rotation = 0.585517
 
-[node name="Path2D2" type="Path2D" parent="Battle/EnemyPaths"]
+[node name="Path2D1" type="Path2D" parent="Battle/EnemyPaths"]
 curve = SubResource( 13 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/EnemyPaths/Path2D2"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Battle/EnemyPaths/Path2D1"]
 position = Vector2( 4432, 3152 )
 rotation = 1.5708
 
@@ -187,6 +187,8 @@ __meta__ = {
 
 [node name="Player" parent="Battle" instance=ExtResource( 7 )]
 position = Vector2( 4416, 3200 )
+
+[node name="EnemyTimer" type="Timer" parent="Battle"]
 
 [node name="Map" type="Node2D" parent="."]
 pause_mode = 1

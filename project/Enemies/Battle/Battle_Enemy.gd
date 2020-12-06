@@ -14,6 +14,11 @@ var attacking := false
 #signals
 signal enemy_attacked
 
+func _process(_delta:float):
+	if Beat_tracker.enemy_hit and not attacking:
+		$Timer.start()
+		_on_Timer_timeout()
+
 func _draw():
 	if collision != null:
 		var shape = collision.get_shape()
