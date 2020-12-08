@@ -7,12 +7,13 @@ export var damage := 0
 export var health := 0
 export var color := Color.white
 #onready variables
-onready var collision := $Area2D/CollisionShape2D
+onready var collision := $CollisionShape2D
 #normal variables
 var _ignore
 var attacking := false
 #signals
 signal enemy_attacked
+signal defeated
 
 func _process(_delta:float):
 	if Beat_tracker.enemy_hit and not attacking:
@@ -35,7 +36,13 @@ func _draw():
 			draw_circle(-Vector2(0,height/2), radius, color)
 			draw_rect(Rect2(-Vector2(radius*2,height)/2, Vector2(radius*2,height)), color)
 
-func _on_Area2D_area_entered(area):
+func _on_Timer_timeout():
+	attacking = false
+	if Beat_tracker.enemy_hit:
+		emit_signal("enemy_attacked")
+		attacking = true
+
+func _on_Guard_area_entered(area):
 	if area is Battle_Player and attacking:
 		var damage_mod := 0
 		match randi()%3:
@@ -48,8 +55,8 @@ func _on_Area2D_area_entered(area):
 		var actual_damage := damage + damage_mod
 		area.hit(actual_damage)
 
-func _on_Timer_timeout():
-	attacking = false
-	if Beat_tracker.enemy_hit:
-		emit_signal("enemy_attacked")
-		attacking = true
+func hit(damage_taken:int):
+	health -= damage_taken
+	if health <= 0:
+		emit_signal("defeated")
+		queue_free()

@@ -104,24 +104,64 @@ points = PoolVector2Array( 0, 0, 32, 0, 10.8765, 13.0467, 0, 32 )
 } ]
 0/z_index = 0
 
-[sub_resource type="Curve2D" id=10]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 4432, 3216, 1.59099, 4.59619, -1.59099, -4.59619, 4416, 3200, -6.01041, 15.026, 6.01041, -15.026, 4416, 3168, 0, 0, 0, 0, 4432, 3152, -3.71231, -10.4298, 3.71231, 10.4298, 4448, 3168, 1.41421, -5.48008, -1.41421, 5.48008, 4448, 3200, 0, 0, 0, 0, 4432, 3216 )
+[sub_resource type="Animation" id=12]
+resource_name = "0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4416, 3200 ), Vector2( 4400, 3184 ), Vector2( 4416, 3136 ), Vector2( 4432, 3184 ), Vector2( 4416, 3200 ) ]
 }
 
-[sub_resource type="Curve2D" id=11]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 4432, 3216, 0, 0, 0, 0, 4432, 3152, 0, 0, 0, 0, 4432, 3216 )
+[sub_resource type="Animation" id=13]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4416, 3200 ), Vector2( 4416, 3136 ), Vector2( 4416, 3200 ) ]
 }
 
-[sub_resource type="Curve2D" id=12]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 4432, 3152, -1.375, -7.125, 1.375, 7.125, 4448, 3168, 2.625, -6.25, -2.625, 6.25, 4448, 3200, 1.75, 0.375, -1.75, -0.375, 4432, 3216, 4.75, 9, -4.75, -9, 4416, 3200, -3.25, 12.125, 3.25, -12.125, 4416, 3168, 0, 0, 0, 0, 4432, 3152 )
+[sub_resource type="Animation" id=10]
+resource_name = "0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemy_Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4416, 3136 ), Vector2( 4432, 3152 ), Vector2( 4416, 3200 ), Vector2( 4400, 3152 ), Vector2( 4416, 3136 ) ]
 }
 
-[sub_resource type="Curve2D" id=13]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 4432, 3152, 0, 0, 0, 0, 4432, 3216, 0, 0, 0, 0, 4432, 3152 )
+[sub_resource type="Animation" id=11]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemy_Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4416, 3136 ), Vector2( 4416, 3200 ), Vector2( 4416, 3136 ) ]
 }
 
 [node name="Main" type="Node2D"]
@@ -139,43 +179,6 @@ tile_data = PoolIntArray( 1310758, 0, 131074, 1310759, 0, 65537, 1310760, 0, 655
 pause_mode = 2
 script = ExtResource( 5 )
 
-[node name="PlayerPaths" type="Node2D" parent="Battle"]
-position = Vector2( -16, -16 )
-
-[node name="Path2D0" type="Path2D" parent="Battle/PlayerPaths"]
-curve = SubResource( 10 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/PlayerPaths/Path2D0"]
-position = Vector2( 4432, 3216 )
-rotation = -2.45458
-
-[node name="Path2D1" type="Path2D" parent="Battle/PlayerPaths"]
-curve = SubResource( 11 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/PlayerPaths/Path2D1"]
-position = Vector2( 4432, 3216 )
-rotation = -1.5708
-
-[node name="EnemyPaths" type="Node2D" parent="Battle"]
-position = Vector2( -16, -16 )
-
-[node name="Path2D0" type="Path2D" parent="Battle/EnemyPaths"]
-curve = SubResource( 12 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/EnemyPaths/Path2D0"]
-position = Vector2( 4432, 3152 )
-rotation = 0.585517
-
-[node name="Path2D1" type="Path2D" parent="Battle/EnemyPaths"]
-curve = SubResource( 13 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Battle/EnemyPaths/Path2D1"]
-position = Vector2( 4432, 3152 )
-rotation = 1.5708
-
-[node name="EnemyPosition" type="Position2D" parent="Battle"]
-position = Vector2( 4416, 3136 )
-
 [node name="Cameras" type="Node2D" parent="Battle"]
 
 [node name="Island_Camera" type="Camera2D" parent="Battle/Cameras"]
@@ -190,6 +193,17 @@ position = Vector2( 4416, 3200 )
 
 [node name="EnemyTimer" type="Timer" parent="Battle"]
 
+[node name="Enemy_Base" type="Node2D" parent="Battle"]
+position = Vector2( 4416, 3136 )
+
+[node name="PlayerAnimator" type="AnimationPlayer" parent="Battle"]
+anims/0 = SubResource( 12 )
+anims/1 = SubResource( 13 )
+
+[node name="EnemyAnimator" type="AnimationPlayer" parent="Battle"]
+anims/0 = SubResource( 10 )
+anims/1 = SubResource( 11 )
+
 [node name="Map" type="Node2D" parent="."]
 pause_mode = 1
 
@@ -201,3 +215,5 @@ position = Vector2( 1276.01, 690.812 )
 [node name="Guard" parent="Map/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1280, 736 )
 [connection signal="combat_instigated" from="." to="Battle" method="_on_Main_combat_instigated"]
+[connection signal="enemy_defeated" from="Battle" to="." method="_on_Battle_enemy_defeated"]
+[connection signal="player_attacked" from="Battle/Player" to="Battle" method="_on_Player_player_attacked"]
