@@ -21,9 +21,10 @@ func _process(_delta:float):
 
 func _draw():
 	if collision != null:
+		#draw shape based on collisionshape
 		var shape = collision.get_shape()
 		if shape is CircleShape2D:
-			var radius = shape.radius
+			var radius:float = shape.radius
 			draw_circle(-Vector2(radius,radius), radius, color)
 		elif shape is RectangleShape2D:
 			var extents : Vector2 = shape.extents
@@ -34,8 +35,12 @@ func _draw():
 			draw_circle(Vector2(0,height/2), radius, color)
 			draw_circle(-Vector2(0,height/2), radius, color)
 			draw_rect(Rect2(-Vector2(radius*2,height)/2, Vector2(radius*2,height)), color)
+		#Draw attack radius
+		shape = $Fight_Radius/CollisionShape2D.get_shape()
+		var radius:float = shape.radius
+		draw_circle(Vector2.ZERO, radius, Color(1,0,0,0.5))
+		draw_circle(Vector2.ZERO, radius-1, Color(0,0,0,0))
 
 func _on_Fight_Radius_body_entered(body):
 	if body is Map_Player:
-		var Self := battle_self.instance()
-		emit_signal("collided_with_player", self, Self, number)
+		emit_signal("collided_with_player", self, battle_self, number)

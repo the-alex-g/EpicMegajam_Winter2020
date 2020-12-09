@@ -21,7 +21,7 @@ func _ready():
 func _process(_delta:float):
 	pass
 
-func combat_instigated(map_enemy:KinematicBody2D, combat_enemy:Node2D, quantity:int):
+func combat_instigated(map_enemy:KinematicBody2D, combat_enemy:PackedScene, quantity:int):
 	_current_camera = get_node("Battle/Cameras/"+_current_terrain+"_Camera")
 	_current_camera.current = true
 	_enemy_currently_fighting = map_enemy

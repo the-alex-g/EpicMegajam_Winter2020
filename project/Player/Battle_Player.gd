@@ -9,16 +9,16 @@ onready var collision := $CollisionShape2D
 #normal variables
 var _ignore
 var attacking := false
+var extra_damage := 1
 #signals
 signal player_attacked
-
-func _ready():
-	pass
 
 func _process(_delta:float):
 	if Input.is_action_just_pressed("Attack") and not Beat_tracker.enemy_hit:
 		emit_signal("player_attacked")
 		attacking = true
+		extra_damage = 1 if Beat_tracker.player_hit == true else 2
+		$Timer.start()
 
 func hit(damage:int):
 	PlayerStats.health -= damage
@@ -52,5 +52,9 @@ func _on_Area2D_area_entered(area):
 			2:
 				damage_mod = 10
 		var actual_damage:int = PlayerStats.damage + damage_mod
-		actual_damage *= 1 if Beat_tracker.player_hit == false else 2
+		actual_damage *= extra_damage
 		area.hit(actual_damage)
+
+func _on_Timer_timeout():
+	extra_damage = 1
+	attacking = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art/Tiles.png" type="Texture" id=1]
 [ext_resource path="res://Main/Main.gd" type="Script" id=2]
@@ -7,32 +7,9 @@
 [ext_resource path="res://Main/Battle.gd" type="Script" id=5]
 [ext_resource path="res://Enemies/Map/Guard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player/Battle_Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Main/HUD.tscn" type="PackedScene" id=8]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 3.33177, 0, 3.33177, 32, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 29.4242, 32, 29.9064, 32, 32, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 28.098, 0, 32, 0, 32, 32, 28.098, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 3.33179, 0, 4.2963 )
-
-[sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 0, 15.6991, 18.2816, 32, 32, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 19.4174, 20.2805, 32, 0, 32, 32, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 21.6574, 13.0467 )
-
-[sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 0, 0, 32, 0, 10.8765, 13.0467, 0, 32 )
-
-[sub_resource type="TileSet" id=9]
+[sub_resource type="TileSet" id=1]
 0/name = "Tiles.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -50,61 +27,12 @@ points = PoolVector2Array( 0, 0, 32, 0, 10.8765, 13.0467, 0, 32 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
 0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 1, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 2, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 2 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 0, 1 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 3 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 1, 1 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 4 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 2, 1 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 5 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 0, 2 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 6 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 1, 2 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 7 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 2, 2 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 8 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "0"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player:position")
@@ -119,7 +47,7 @@ tracks/0/keys = {
 "values": [ Vector2( 4416, 3200 ), Vector2( 4400, 3184 ), Vector2( 4416, 3136 ), Vector2( 4432, 3184 ), Vector2( 4416, 3200 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=3]
 resource_name = "1"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player:position")
@@ -134,8 +62,7 @@ tracks/0/keys = {
 "values": [ Vector2( 4416, 3200 ), Vector2( 4416, 3136 ), Vector2( 4416, 3200 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "0"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemy_Base:position")
 tracks/0/interp = 1
@@ -149,8 +76,7 @@ tracks/0/keys = {
 "values": [ Vector2( 4416, 3136 ), Vector2( 4432, 3152 ), Vector2( 4416, 3200 ), Vector2( 4400, 3152 ), Vector2( 4416, 3136 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "1"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemy_Base:position")
 tracks/0/interp = 1
@@ -170,7 +96,7 @@ script = ExtResource( 2 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 9 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 1310758, 0, 131074, 1310759, 0, 65537, 1310760, 0, 65537, 1310761, 0, 131073, 1376294, 0, 1, 1376295, 0, 0, 1376296, 0, 0, 1376297, 0, 65536, 1441830, 0, 1, 1441831, 0, 0, 1441832, 0, 0, 1441833, 0, 65536, 1507366, 0, 65538, 1507367, 0, 2, 1507368, 0, 2, 1507369, 0, 131072, 6357128, 0, 131074, 6357129, 0, 0, 6357130, 0, 0, 6357131, 0, 131073, 6422664, 0, 0, 6422665, 0, 0, 6422666, 0, 0, 6422667, 0, 0, 6488200, 0, 0, 6488201, 0, 0, 6488202, 0, 0, 6488203, 0, 0, 6553736, 0, 65538, 6553737, 0, 0, 6553738, 0, 0, 6553739, 0, 131072 )
@@ -197,12 +123,12 @@ position = Vector2( 4416, 3200 )
 position = Vector2( 4416, 3136 )
 
 [node name="PlayerAnimator" type="AnimationPlayer" parent="Battle"]
-anims/0 = SubResource( 12 )
-anims/1 = SubResource( 13 )
+anims/0 = SubResource( 2 )
+anims/1 = SubResource( 3 )
 
 [node name="EnemyAnimator" type="AnimationPlayer" parent="Battle"]
-anims/0 = SubResource( 10 )
-anims/1 = SubResource( 11 )
+anims/0 = SubResource( 4 )
+anims/1 = SubResource( 5 )
 
 [node name="Map" type="Node2D" parent="."]
 pause_mode = 1
@@ -214,6 +140,9 @@ position = Vector2( 1276.01, 690.812 )
 
 [node name="Guard" parent="Map/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1280, 736 )
+number = 2
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
 [connection signal="combat_instigated" from="." to="Battle" method="_on_Main_combat_instigated"]
 [connection signal="enemy_defeated" from="Battle" to="." method="_on_Battle_enemy_defeated"]
 [connection signal="player_attacked" from="Battle/Player" to="Battle" method="_on_Player_player_attacked"]
