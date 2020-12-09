@@ -10,6 +10,7 @@ var _ignore
 
 func _ready():
 	_healthbar.max_value = PlayerStats.health
+	_healthbar.value = PlayerStats.health
 
 func _process(_delta:float):
 	_healthbar.value = PlayerStats.health
